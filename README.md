@@ -1,70 +1,116 @@
-# Getting Started with Create React App
+# Intelligent Medical Follow-up Algorithm
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a full-stack application that enables users to parse prescriptions, generate reminders, submit feedback, and track medication adherence. It is built with **React** for the frontend, **Firebase** for authentication, and **Firestore** as the database.
+
+## Features
+- **Prescription Parsing**: Parse prescription text and generate reminders.
+- **Reminder System**: Store and manage medication reminders in Firestore.
+- **Patient Feedback**: Submit feedback about medication adherence and side effects.
+- **Authentication**: Firebase Authentication for user login/logout.
+- **Firebase Firestore**: Manage user profiles, feedback, and prescriptions.
+
+## Prerequisites
+- **Node.js** (v14+)
+- **Firebase Account** (for Firestore and Authentication)
+- **Docker** (optional)
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/shaikfareed46/prescription-reminder.git
+   cd prescription-reminder
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Create a `.env` file in the root of your project and add Firebase configuration keys:
+
+   ```bash
+   REACT_APP_FIREBASE_API_KEY=your-api-key
+   REACT_APP_FIREBASE_AUTH_DOMAIN=your-auth-domain
+   REACT_APP_FIREBASE_PROJECT_ID=your-project-id
+   REACT_APP_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+   REACT_APP_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+   REACT_APP_FIREBASE_APP_ID=your-app-id
+   ```
+
+4. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+   The app will be available at `http://localhost:3000`.
+
+## Docker Setup (Optional)
+
+If you prefer to run the app using Docker, follow these steps:
+
+1. Build the Docker image:
+
+   ```bash
+   docker build -t prescription-reminder .
+   ```
+
+2. Run the Docker container:
+
+   ```bash
+   docker run -p 3000:3000 prescription-reminder
+   ```
+
+   The app will be available at `http://localhost:3000`.
+
+## Firebase Setup
+
+1. Create a Firebase project at [Firebase Console](https://console.firebase.google.com/).
+2. Enable **Firestore Database** and **Authentication** (Email/Password or Google).
+3. Add Firebase project configuration to the `.env` file.
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `npm start`
+- **`npm start`**: Runs the app in development mode.
+- **`npm run build`**: Builds the app for production.
+- **`npm test`**: Launches the test runner.
+- **`npm run lint`**: Lints the codebase using ESLint.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Folder Structure
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+```bash
+src/
+├── components/          # React components
+│   ├── PrescriptionParser.js
+│   ├── PatientFeedback.js
+│   ├── PatientProfile.js
+│   ├── Login.js
+│   └── ReminderGenerator.js
+├── services/            # Firebase services
+│   ├── firebase.js
+│   ├── prescriptionService.js
+│   ├── feedbackService.js
+│   └── reminderService.js
+├── utils/               # Helper functions
+│   ├── dataExtraction.js
+│   └── dateutils.js
+└── App.js               # Main App component
+              # Main App component
+```
 
-### `npm test`
+## Contributions
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Feel free to submit a pull request or open an issue if you'd like to contribute.
 
-### `npm run build`
+## License
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+This format is concise, easy to read, and follows standard conventions for a GitHub project README. You can update the details like the GitHub URL and Firebase keys as per your specific setup.
