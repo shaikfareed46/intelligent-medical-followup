@@ -53,7 +53,7 @@ const Login = () => {
                     fullWidth
                     required
                 />
-                <Button
+                {/* <Button
                     type="submit"
                     variant="contained"
                     color="primary"
@@ -61,7 +61,7 @@ const Login = () => {
                     fullWidth
                 >
                     Login
-                </Button>
+                </Button> */}
             </form>
 
             <Button
